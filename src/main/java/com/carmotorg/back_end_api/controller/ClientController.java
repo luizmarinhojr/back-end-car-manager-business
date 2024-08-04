@@ -27,6 +27,6 @@ public class ClientController {
     @Transactional
     public ResponseEntity<ClientResponse> register(@RequestBody @Validated ClientRequest clientRequest) {
         ClientResponse clientResponse = service.register(clientRequest);
-        return ResponseEntity.created(URI.create("/")).body(clientResponse);
+        return ResponseEntity.created(URI.create("/clients/" + clientResponse.externalId())).body(clientResponse);
     }
 }

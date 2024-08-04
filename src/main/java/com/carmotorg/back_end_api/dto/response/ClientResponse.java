@@ -51,7 +51,7 @@ public record ClientResponse(
                 client.getCreatedAt(),
                 client.getModifiedAt() == null ? null : client.getModifiedAt(),
                 client.getVehicles().stream().map(VehicleResponse::new).collect(Collectors.toSet()),
-                client.getAddresses().stream().map(AddressResponse::new).collect(Collectors.toSet())
+                client.getAddresses() == null ? null : client.getAddresses().stream().map(AddressResponse::new).collect(Collectors.toSet())
         );
     }
 }

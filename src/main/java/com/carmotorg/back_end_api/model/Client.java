@@ -66,7 +66,7 @@ public class Client {
         this.firstName = clientInput.firstName();
         this.lastName = clientInput.lastName();
         this.cellphone = clientInput.cellphone();
-        this.cpf = clientInput.cpf().isEmpty() ? null : clientInput.cpf();
+        this.cpf = clientInput.cpf() == null ? null : clientInput.cpf();
         this.birthDate = clientInput.birthDate() == null ? null : clientInput.birthDate();
         this.vehicles = new HashSet<>();
         if (clientInput.address() != null) {

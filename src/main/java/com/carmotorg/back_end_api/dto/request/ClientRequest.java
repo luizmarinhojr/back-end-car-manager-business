@@ -31,7 +31,6 @@ public record ClientRequest(
         String cpf,
 
         @JsonAlias("birth_date")
-        @Length(max = 35)
         Date birthDate,
 
         @NotNull

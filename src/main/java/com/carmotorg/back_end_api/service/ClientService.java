@@ -30,15 +30,10 @@ public class ClientService {
     public ClientResponse register(ClientRequest clientRequest) {
         Client client = clientRepository.save(new Client(clientRequest));
         client.addVehicle(registerVehicle(clientRequest.vehicle(), client));
-        client.addAddress(registerAddress(clientRequest.address(), client));
-        return new ClientResponse(client);
-    }
-
-    private Address registerAddress(AddressRequest addressRequest, Client client) {
-        if (addressRequest != null) {
-            return addressRepository.save(new Address(addressRequest, client));
+        if (clientRequest.address() != null) {
+            client.addAddress(addressRepository.save(new Address(clientRequest.address(), client)));
         }
-        return null;
+        return new ClientResponse(client);
     }
 
     private Vehicle registerVehicle(VehicleRequest vehicleRequest, Client client) {

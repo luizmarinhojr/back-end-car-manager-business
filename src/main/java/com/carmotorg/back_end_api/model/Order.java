@@ -34,6 +34,9 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatusEnum orderStatus;
 
+    @Column(name = "estimated_service_days")
+    private Integer estimatedDaysToService;
+
     @Column(name = "estimated_vehicle_receipt")
     private LocalDateTime estimatedVehicleReceipt;
 
