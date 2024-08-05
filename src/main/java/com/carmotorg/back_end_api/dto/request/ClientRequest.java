@@ -27,7 +27,7 @@ public record ClientRequest(
         @Email(message = "Invalid email")
         String email,
 
-        @CPF(message = "Invalid CPF")
+        @CPF(message = "CPF is invalid")
         String cpf,
 
         @JsonAlias("birth_date")
